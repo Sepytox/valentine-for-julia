@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Julia ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: float 2s infinite alternate ease-in-out;
+        }
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: darkred;
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">❤️</div>
+    <div class="message">Me asking u a bit late but does ma wonderful baby wanna be my valentine :> PLEAAAAAAASEEEEEEE</div>
+    <button class="button" onclick="yesClicked()">Yes! 💖</button>
+    
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = '<h1>YAAAAAAAAAAAY! ❤️ Julia is my Valentine! 🎉 HIHIHIHIHI I LOVE YOU MY BABY </h1>';
+            createFlowers();
+        }
+        
+        function createFlowers() {
+            for (let i = 0; i < 20; i++) {
+                let flower = document.createElement("div");
+                flower.innerHTML = "🌸";
+                flower.classList.add("flower");
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(flower);
+            }
+        }
+    </script>
+</body>
+</html>
