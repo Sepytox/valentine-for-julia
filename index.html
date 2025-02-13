@@ -51,17 +51,41 @@
             from { transform: translateY(-100vh) rotate(0deg); }
             to { transform: translateY(100vh) rotate(360deg); }
         }
+        .firework {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('cat-twerk.gif') no-repeat center;
+            background-size: cover;
+            animation: explode 1.5s ease-out forwards;
+        }
+        @keyframes explode {
+            from { transform: scale(0); opacity: 1; }
+            to { transform: scale(1.5); opacity: 0; }
+        }
+        .gift {
+            width: 100px;
+            height: 100px;
+            background: url('cat-twerk.gif') no-repeat center;
+            background-size: cover;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
     <div class="heart">❤️</div>
-    <div class="message">Me asking u a bit late but does ma wonderful baby wanna be my valentine :> PLEAAAAAAASEEEEEEE</div>
+    <div class="message">Me asking u a bit late but does ma wonderful baby wanna be my valentine :> plsplsplsplsplspls</div>
     <button class="button" onclick="yesClicked()">Yes! 💖</button>
     
     <script>
         function yesClicked() {
-            document.body.innerHTML = '<h1>YAAAAAAAAAAAY! ❤️ Julia is my Valentine! 🎉 HIHIHIHIHI I LOVE YOU MY BABY </h1>';
+            document.body.innerHTML = '<h1>YAY! ❤️ Julia is my Valentine! 🎉 HIHIHIHIHI I LOVE YOU BABY :></h1>';
             createFlowers();
+            createFireworks();
+            showGift();
         }
         
         function createFlowers() {
@@ -73,6 +97,23 @@
                 flower.style.animationDuration = (Math.random() * 3 + 2) + "s";
                 document.body.appendChild(flower);
             }
+        }
+        
+        function createFireworks() {
+            for (let i = 0; i < 5; i++) {
+                let firework = document.createElement("div");
+                firework.classList.add("firework");
+                firework.style.left = Math.random() * 100 + "vw";
+                firework.style.top = Math.random() * 50 + "vh";
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1500);
+            }
+        }
+        
+        function showGift() {
+            let gift = document.createElement("div");
+            gift.classList.add("gift");
+            document.body.appendChild(gift);
         }
     </script>
 </body>
